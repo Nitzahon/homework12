@@ -1,24 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+// import logo from "./logo.svg";
+import "./App.css";
+//import Post from "./components/Post.js";
+import Register from "./components/Register.js";
+import Post from "./components/Post.js";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
+  let list = [
+    { title: "The Force Awakens", info: "7" },
+    { title: "The Last Jedi", info: "8" },
+    { title: "The Rise of Skywalker", info: "AWWWW YEAH!!!!!"}
+  ];
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+
+
+      <Register />
+        <Post list={list[0]} />
+        <Post list={list[1]} />
+        <Post list={list[2]} />
+
     </div>
   );
 }

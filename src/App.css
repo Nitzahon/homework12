@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+.reactReg{
+  padding: 3rem;
+}
+.reactPost{
+  text-align: center;
+  padding: 5px;
+}
+.inpfield{
+  border-radius: 0.5rem;
+  border-color: darkorange;
+}
+.btn-submit{
+  border-color: teal;
+  border-width: 3px;
+  border-radius: .5rem;
+  background-color: royalblue;
+  color: white;
+}
