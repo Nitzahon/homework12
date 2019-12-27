@@ -60,6 +60,19 @@ export default class Register extends Component {
         break;
 
       case "age":
+        this.setState({ age: { val: tmp } });
+
+        console.log(tmp);
+        if(tmp.length==0 && this.state.age.bgc!="white"){
+          this.setState({ age: { bgc: "white" } });
+
+        }
+        else if(0 === tmp %(!isNaN(parseFloat(tmp)) && 0 <= ~~tmp)){
+          this.setState({ age: { bgc: "green" } });
+        }
+        else{
+          this.setState({ age: { bgc: "red" } });
+        }
         break;
       default:
     }
@@ -125,7 +138,7 @@ export default class Register extends Component {
             name="age"
             onChange={this.validField}
             style={{ backgroundColor: this.state.age.bgc }}
-            type="number"
+            type="text"
             placeholder="Age"
             className="col-md-8 col-lg-3 inpfield"
           />
