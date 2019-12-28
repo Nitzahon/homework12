@@ -7,7 +7,7 @@ import Post from "./components/Post.js";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-  let list = [
+  let posts = [
     { title: "The Force Awakens", info: "7" },
     { title: "The Last Jedi", info: "8" },
     { title: "The Rise of Skywalker", info: "AWWWW YEAH!!!!!"}
@@ -18,9 +18,9 @@ function App() {
 
 
       <Register />
-        <Post list={list[0]} />
-        <Post list={list[1]} />
-        <Post list={list[2]} />
+      {posts.map((element)=>{
+        return <Post title={element.title} info={element.info}/>
+      })}
 
     </div>
   );
