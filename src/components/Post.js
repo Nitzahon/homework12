@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 
 export default class Post extends Component {
-    constructor(props) {
-        super(props);
-      }
     closePost = () =>{
         alert(`Closing post: ${this.props.title}`);
     }
@@ -12,11 +9,11 @@ export default class Post extends Component {
         return (
             <div className="reactPost row">
         <div className="col-4"></div>
-        <div className="col-2">
-        <button onClick={this.closePost} className="close">x</button>
+        <div className="col-4">
+        <button onClick={this.closePost} className="close"></button>
         <div className="row">
             <div className="col-4"></div>
-            <h2 className="col-4"> Posts:</h2>
+            <h2 className="col-4"> Post:</h2>
             <div className="col-4"></div>
         </div>
         <div className="row"><p  id="postTitle">Title :{this.props.title}</p></div>

@@ -32,22 +32,18 @@ export default class Register extends Component {
   // };
   submit = () => {
     let str = "";
-    console.log(str);
-    if (this.state.usernameBgc != "green") {
+    if (this.state.usernameBgc !== "green") {
       str = str + "-Username must be between 6 and 8 characters.\n";
-      console.log(str);
     }
-
-    if (this.state.passwordBgc != "green") {
+    if (this.state.passwordBgc !== "green") {
       str = str + "-Password must be at most 7 characters.\n";
     }
-    if (this.state.emailBgc != "green") {
+    if (this.state.emailBgc !== "green") {
       str = str + '-E-mail must have "@" symbol as 4th char.\n';
     }
-    if (this.state.ageBgc != "green") {
+    if (this.state.ageBgc !== "green") {
       str = str + "-Age must be positive number.\n";
     }
-    console.log(str);
     if (str !== "") {
       alert(`Errors found: \n ${str}`);
     } else {
