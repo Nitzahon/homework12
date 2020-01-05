@@ -28,7 +28,6 @@ export default class Register extends Component {
       val: '',
       bgc: "white"
     },
-    tester:''
   };
   submit = () => {
     let str = "";
