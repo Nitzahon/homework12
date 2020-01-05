@@ -1,47 +1,47 @@
 import React, { Component } from "react";
 
 export default class Register extends Component {
-  state = {
-    username: "",
-    usernameBgc: "white",
-    password: "",
-    passwordBgc: "white",
-    email: "",
-    emailBgc: "white",
-    age: "",
-    ageBgc: "white"
-  };
   // state = {
-  //   username: {
-  //     val: '',
-  //     bgc: "white"
-  //   },
-  //   password: {
-  //     val: '',
-  //     bgc: "white"
-  //   },
-  //   email: {
-  //     val: '',
-  //     bgc: "white"
-  //   },
-  //   age: {
-  //     val: '',
-  //     bgc: "white"
-  //   },
-  //   tester:''
+  //   username: "",
+  //   username.bgc: "white",
+  //   password: "",
+  //   password.bgc: "white",
+  //   email: "",
+  //   email.bgc: "white",
+  //   age: "",
+  //   age.bgc: "white"
   // };
+  state = {
+    username: {
+      val: '',
+      bgc: "white"
+    },
+    password: {
+      val: '',
+      bgc: "white"
+    },
+    email: {
+      val: '',
+      bgc: "white"
+    },
+    age: {
+      val: '',
+      bgc: "white"
+    },
+    tester:''
+  };
   submit = () => {
     let str = "";
-    if (this.state.usernameBgc !== "green") {
+    if (this.state.username.bgc !== "green") {
       str = str + "-Username must be between 6 and 8 characters.\n";
     }
-    if (this.state.passwordBgc !== "green") {
+    if (this.state.password.bgc !== "green") {
       str = str + "-Password must be at most 7 characters.\n";
     }
-    if (this.state.emailBgc !== "green") {
+    if (this.state.email.bgc !== "green") {
       str = str + '-E-mail must have "@" symbol as 4th char.\n';
     }
-    if (this.state.ageBgc !== "green") {
+    if (this.state.age.bgc !== "green") {
       str = str + "-Age must be positive number.\n";
     }
     if (str !== "") {
@@ -58,41 +58,41 @@ export default class Register extends Component {
         this.setState({ username: tmp });
 
         if (tmp.length > 5 && tmp.length < 9) {
-          this.setState({ usernameBgc: "green" });
+          this.setState({ username:{bgc: "green" }});
         } else {
-          this.setState({ usernameBgc: "white" });
+          this.setState({ username:{bgc: "white" }});
         }
         break;
       case "password":
-        this.setState({ password: tmp });
+        this.setState({ password: { val:tmp }});
         if (tmp.length > 1 && tmp.length <= 7) {
-          this.setState({ passwordBgc: "green" });
+          this.setState({ password:{bgc: "green" }});
         } else if (tmp.length > 7) {
-          this.setState({ passwordBgc: "red" });
+          this.setState({ password:{bgc: "red" }});
         } else {
-          this.setState({ passwordBgc: "white" });
+          this.setState({ password:{bgc: "white" }});
         }
         break;
       case "email":
-        this.setState({ email: tmp });
+        this.setState({ email:{ val: tmp }});
         if (tmp[3] === "@") {
-          this.setState({ emailBgc: "green" });
+          this.setState({ email:{bgc: "green" }});
         } else {
-          this.setState({ emailBgc: "white" });
+          this.setState({ email:{bgc: "white" }});
         }
         break;
 
       case "age":
         this.setState({ age: tmp });
 
-        if (tmp.length === 0 && this.state.ageBgc !== "white") {
-          this.setState({ ageBgc: "white" });
+        if (tmp.length === 0 && this.state.age.bgc !== "white") {
+          this.setState({ age:{bgc: "white" }});
         }
         // else if(0 === tmp %(!isNaN(parseFloat(tmp)) && 0 <= ~~tmp)){
         else if (/^\+?\d+$/.test(tmp)) {
-          this.setState({ ageBgc: "green" });
+          this.setState({ age:{bgc: "green" }});
         } else {
-          this.setState({ ageBgc: "red" });
+          this.setState({ age:{bgc: "red" }});
         }
         break;
       default:
@@ -113,7 +113,7 @@ export default class Register extends Component {
           <input
             name="userName"
             onChange={this.validField}
-            style={{ backgroundColor: this.state.usernameBgc }}
+            style={{ backgroundColor: this.state.username.bgc }}
             type="text"
             placeholder="userName"
             className="col-md-8 col-lg-3 inpfield"
@@ -128,7 +128,7 @@ export default class Register extends Component {
           <input
             name="password"
             onChange={this.validField}
-            style={{ backgroundColor: this.state.passwordBgc }}
+            style={{ backgroundColor: this.state.password.bgc }}
             type="password"
             placeholder="Password"
             className="col-md-8 col-lg-3 inpfield"
@@ -143,7 +143,7 @@ export default class Register extends Component {
           <input
             name="email"
             onChange={this.validField}
-            style={{ backgroundColor: this.state.emailBgc }}
+            style={{ backgroundColor: this.state.email.bgc }}
             type="text"
             placeholder="Email"
             className="col-md-8 col-lg-3 inpfield"
@@ -158,7 +158,7 @@ export default class Register extends Component {
           <input
             name="age"
             onChange={this.validField}
-            style={{ backgroundColor: this.state.ageBgc }}
+            style={{ backgroundColor: this.state.age.bgc }}
             type="text"
             placeholder="Age"
             className="col-md-8 col-lg-3 inpfield"
