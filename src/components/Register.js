@@ -54,7 +54,7 @@ export default class Register extends Component {
     switch (element.target.name) {
       case "userName":
         // this.state.username.setState({value:element.target.value});
-        this.setState({ username: tmp });
+        this.setState({ username: {val: tmp }});
 
         if (tmp.length > 5 && tmp.length < 9) {
           this.setState({ username:{bgc: "green" }});
@@ -82,7 +82,7 @@ export default class Register extends Component {
         break;
 
       case "age":
-        this.setState({ age: tmp });
+        this.setState({ age: {val:tmp }});
 
         if (tmp.length === 0 && this.state.age.bgc !== "white") {
           this.setState({ age:{bgc: "white" }});
